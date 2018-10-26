@@ -31,7 +31,7 @@
 
     var quotes = $(".intro-text");
     var quoteIndex = -1;
-    
+
     function showNextQuote() {
         ++quoteIndex;
         quotes.eq(quoteIndex % quotes.length)
@@ -39,9 +39,9 @@
             .delay(2500)
             .fadeOut(2500, showNextQuote);
     }
-    
+
     showNextQuote();
-    
+
   })();
 
   $(".progress-bar").animate({
@@ -82,20 +82,20 @@ $(document).ready(function(){
       }, 800, function(){
         window.location.hash = hash;
       });
-    } 
+    }
   });
-    
+
   setInterval(function(){
     $('.ct-btn-scroll').toggleClass("bounce");
-  }, 5000);    
-    
+  }, 5000);
+
 });
 
 (function() {
 
   var quotes = $(".quotes");
   var quoteIndex = -1;
-  
+
   function showNextQuote() {
       ++quoteIndex;
       quotes.eq(quoteIndex % quotes.length)
@@ -103,10 +103,26 @@ $(document).ready(function(){
           .delay(2000)
           .fadeOut(2000, showNextQuote);
   }
-  
+
   showNextQuote();
-  
+
 })();
 
+$('.level-bar-inner').css('width', '0');
 
+    $(window).on('load', function() {
 
+        $('.level-bar-inner').each(function() {
+
+            var itemWidth = $(this).data('level');
+
+            $(this).animate({
+                width: itemWidth
+            }, 800);
+
+        });
+
+    });
+
+    /* Bootstrap Tooltip for Skillset */
+    $('.level-label').tooltip();
